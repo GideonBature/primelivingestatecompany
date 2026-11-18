@@ -9,6 +9,7 @@ const poppins = Poppins({ subsets: ["latin"], variable: "--font-poppins", weight
 export const viewport: Viewport = { themeColor: "#ddc65c" };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://primelivingestatecompany.ng"),
   title: `${company.name} | Real Estate Development & General Contracting, Kaduna`,
   description:
     "Prime Living Estate Limited — residential, commercial, institutional and industrial construction, construction management and design-build from Kaduna, Nigeria. Building today, securing tomorrow.",

@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
   basePath: basePath || undefined,
   images: { unoptimized: true },
   reactStrictMode: true,
+  // lets you open the dev server from a phone/other device on the same Wi-Fi
+  allowedDevOrigins: ["192.168.1.152"],
 };
 
 export default nextConfig;
