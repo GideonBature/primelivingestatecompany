@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #ddc65c;
+  --color-gold-deep: #8f7a1f;
+  --color-gold-soft: #efe3a6;
+  --color-char: #272727;
+  --color-char-2: #1b1b1b;
+  --color-ivory: #fbf9f2;
+  --color-cream: #f2ecd6;
+  --color-stone: #6b6657;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+}
+
+html { overflow-x: clip; scroll-behavior: smooth; scroll-padding-top: 96px; }
+body { background: var(--color-ivory); color: var(--color-char); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+h1, h2, h3, .font-display { font-family: var(--font-display); font-optical-sizing: auto; letter-spacing: -0.015em; }
+
+/* hanging logo block, as on the letterhead */
+.hang { box-shadow: 0 14px 30px -12px rgba(0,0,0,.45); }
+
+/* roofline hairlines */
+.roof-bg { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60' viewBox='0 0 120 60'%3E%3Cpath d='M0 60 L30 30 L60 60 M60 60 L90 30 L120 60' fill='none' stroke='%23ddc65c' stroke-opacity='.22' stroke-width='1.5'/%3E%3C/svg%3E"); background-size: 120px 60px; }
+.roof-bg-dark { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60' viewBox='0 0 120 60'%3E%3Cpath d='M0 60 L30 30 L60 60 M60 60 L90 30 L120 60' fill='none' stroke='%23272727' stroke-opacity='.07' stroke-width='1.5'/%3E%3C/svg%3E"); background-size: 120px 60px; }
+
+/* gabled image frame */
+.gable { clip-path: polygon(0 22%, 50% 0, 100% 22%, 100% 100%, 0 100%); }
+.gable-sm { clip-path: polygon(0 10%, 50% 0, 100% 10%, 100% 100%, 0 100%); }
+
+.draw path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.2s cubic-bezier(.6,.05,.2,1) .2s forwards; }
+.draw path:nth-child(2) { animation-delay: .5s } .draw path:nth-child(3) { animation-delay: .8s }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+@keyframes drift { to { transform: translateX(-50%); } }
+.drift { animation: drift 50s linear infinite; }
+
+:focus-visible { outline: 3px solid var(--color-gold-deep); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .drift { animation: none; }
+  .draw path { animation: none; stroke-dashoffset: 0; }
+  html { scroll-behavior: auto; }
+}
